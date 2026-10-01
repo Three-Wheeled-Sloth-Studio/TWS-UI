@@ -1,0 +1,41 @@
+:root {
+  --tws-font-utility: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --tws-font-display: Georgia, "Times New Roman", serif;
+
+  --tws-color-surface-canvas: #f3f0ea;
+  --tws-color-surface-panel: #fbf9f5;
+  --tws-color-surface-raised: #ffffff;
+  --tws-color-surface-inset: #ebe6dd;
+
+  --tws-color-text-primary: #24211d;
+  --tws-color-text-muted: #655f57;
+  --tws-color-text-inverse: #ffffff;
+
+  --tws-color-border-normal: #c8c0b5;
+  --tws-color-border-strong: #8d8377;
+
+  --tws-color-action-primary: #315f66;
+  --tws-color-action-primary-hover: #244b50;
+  --tws-color-action-subtle: #e1ecec;
+
+  --tws-color-state-success: #3f6d4f;
+  --tws-color-state-warning: #8a6427;
+  --tws-color-state-danger: #914d43;
+  --tws-color-state-info: #4d6f86;
+
+  --tws-radius-input: 7px;
+  --tws-radius-button: 10px;
+  --tws-radius-pill: 999px;
+  --tws-radius-panel: 14px;
+
+  --tws-space-1: 4px;
+  --tws-space-2: 8px;
+  --tws-space-3: 12px;
+  --tws-space-4: 16px;
+  --tws-space-5: 24px;
+  --tws-space-6: 32px;
+
+  --tws-shadow-control: 0 1px 2px rgba(24, 20, 16, 0.12);
+  --tws-shadow-panel: 0 8px 24px rgba(24, 20, 16, 0.10);
+  --tws-focus-ring: 0 0 0 3px rgba(49, 95, 102, 0.28);
+}
