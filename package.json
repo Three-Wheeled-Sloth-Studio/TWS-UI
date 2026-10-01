@@ -29,10 +29,19 @@
     "react-dom": "^19.2.7"
   },
   "exports": {
-    "./react": "./packages/react/dist/index.js",
+    "./react": {
+      "types": "./packages/react/dist/index.d.ts",
+      "default": "./packages/react/dist/index.js"
+    },
     "./react/styles.css": "./packages/react/src/styles.css",
-    "./theme": "./packages/theme/dist/index.js",
-    "./tokens": "./packages/tokens/dist/index.js",
+    "./theme": {
+      "types": "./packages/theme/dist/index.d.ts",
+      "default": "./packages/theme/dist/index.js"
+    },
+    "./tokens": {
+      "types": "./packages/tokens/dist/index.d.ts",
+      "default": "./packages/tokens/dist/index.js"
+    },
     "./tokens.css": "./packages/tokens/src/tokens.css"
   },
   "files": [
