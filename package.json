@@ -4,13 +4,15 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "typecheck": "tsc -b",
     "test": "vitest run",
     "build": "tsc -b",
-    "verify": "npm run typecheck && npm test && npm run build"
+    "verify": "npm run typecheck && npm test && npm run build && npm run build:showcase",
+    "build:showcase": "npm run build -w @tws-ui/showcase"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",
