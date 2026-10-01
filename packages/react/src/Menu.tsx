@@ -13,7 +13,7 @@ export type MenuProps = { trigger: ReactNode; items: readonly MenuItem[]; label?
 
 export function Menu({ trigger, items, label }: MenuProps) {
   return (
-    <MenuPrimitive.Root>
+    <MenuPrimitive.Root modal={false}>
       <MenuPrimitive.Trigger asChild>{trigger}</MenuPrimitive.Trigger>
       <MenuPrimitive.Portal>
         <MenuPrimitive.Content className="tws-menu" sideOffset={6} aria-label={label}>
