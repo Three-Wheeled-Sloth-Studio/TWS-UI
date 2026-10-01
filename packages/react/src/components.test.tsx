@@ -53,7 +53,7 @@ describe("core components", () => {
     );
     expect(html).toContain('type="checkbox"');
     expect(html).toContain("tws-status--success");
-    expect(html).toContain('role="alertdialog"');
+    expect(html).toContain('role="dialog"');
     expect(html).toContain('aria-valuenow="42"');
   });
 });
