@@ -1,0 +1,170 @@
+@import "@tws-ui/tokens/css";
+
+.tws-button,
+.tws-icon-button,
+.tws-input,
+.tws-panel,
+.tws-tag,
+.tws-segmented-control {
+  font-family: var(--tws-font-utility);
+  color: var(--tws-color-text-primary);
+}
+
+.tws-button,
+.tws-icon-button,
+.tws-segmented-control button {
+  cursor: pointer;
+}
+
+.tws-button:focus-visible,
+.tws-icon-button:focus-visible,
+.tws-input:focus-visible,
+.tws-segmented-control button:focus-visible {
+  outline: none;
+  box-shadow: var(--tws-focus-ring);
+}
+
+.tws-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tws-space-2);
+  min-height: 38px;
+  border: 1px solid var(--tws-color-border-strong);
+  border-radius: var(--tws-radius-button);
+  padding: 8px 14px;
+  font-weight: 700;
+  box-shadow: var(--tws-shadow-control);
+}
+
+.tws-button--compact {
+  min-height: 32px;
+  padding: 5px 10px;
+}
+
+.tws-button--primary {
+  border-color: var(--tws-color-action-primary);
+  color: var(--tws-color-text-inverse);
+  background: var(--tws-color-action-primary);
+}
+
+.tws-button--primary:hover {
+  background: var(--tws-color-action-primary-hover);
+}
+
+.tws-button--secondary {
+  background: var(--tws-color-surface-raised);
+}
+
+.tws-button--subtle {
+  border-color: transparent;
+  background: var(--tws-color-action-subtle);
+}
+
+.tws-button--danger {
+  border-color: var(--tws-color-state-danger);
+  color: var(--tws-color-text-inverse);
+  background: var(--tws-color-state-danger);
+}
+
+.tws-button:disabled,
+.tws-icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tws-button__icon {
+  display: inline-grid;
+  place-items: center;
+}
+
+.tws-icon-button {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid var(--tws-color-border-normal);
+  border-radius: var(--tws-radius-pill);
+  background: var(--tws-color-surface-raised);
+  box-shadow: var(--tws-shadow-control);
+}
+
+.tws-panel {
+  border: 1px solid var(--tws-color-border-normal);
+  border-radius: var(--tws-radius-panel);
+  background: var(--tws-color-surface-panel);
+}
+
+.tws-panel--raised {
+  box-shadow: var(--tws-shadow-panel);
+}
+
+.tws-input {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--tws-color-border-normal);
+  border-radius: var(--tws-radius-input);
+  padding: 8px 10px;
+  background: var(--tws-color-surface-raised);
+}
+
+.tws-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.tws-form-field {
+  display: grid;
+  gap: var(--tws-space-2);
+  font-family: var(--tws-font-utility);
+}
+
+.tws-form-field__label {
+  font-weight: 700;
+}
+
+.tws-form-field__hint {
+  color: var(--tws-color-text-muted);
+  font-size: 0.84rem;
+}
+
+.tws-form-field__error {
+  color: var(--tws-color-state-danger);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.tws-tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid var(--tws-color-border-normal);
+  border-radius: var(--tws-radius-pill);
+  padding: 3px 8px;
+  background: var(--tws-color-surface-inset);
+  font-size: 0.8rem;
+}
+
+.tws-segmented-control {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid var(--tws-color-border-normal);
+  border-radius: var(--tws-radius-input);
+}
+
+.tws-segmented-control button {
+  border: 0;
+  border-right: 1px solid var(--tws-color-border-normal);
+  padding: 7px 11px;
+  color: inherit;
+  background: var(--tws-color-surface-raised);
+}
+
+.tws-segmented-control button:last-child {
+  border-right: 0;
+}
+
+.tws-segmented-control button.is-active {
+  background: var(--tws-color-action-subtle);
+  font-weight: 700;
+}
