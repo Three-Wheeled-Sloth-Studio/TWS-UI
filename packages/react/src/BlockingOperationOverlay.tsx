@@ -1,3 +1,4 @@
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import type { ReactNode } from "react";
 
 export type BlockingOperationOverlayProps = {
@@ -9,27 +10,38 @@ export type BlockingOperationOverlayProps = {
 };
 
 export function BlockingOperationOverlay({ open, operation, item, progress, detail }: BlockingOperationOverlayProps) {
-  if (!open) return null;
   const determinate = typeof progress === "number";
   const normalized = determinate ? Math.max(0, Math.min(100, progress)) : undefined;
 
   return (
-    <div className="tws-blocking-overlay" role="alertdialog" aria-modal="true" aria-labelledby="tws-blocking-operation">
-      <div className="tws-blocking-overlay__card">
-        <div className="tws-blocking-overlay__spinner" aria-hidden="true" />
-        <h2 id="tws-blocking-operation">{operation}</h2>
-        {item ? <div className="tws-blocking-overlay__item">{item}</div> : null}
-        <div
-          className={`tws-progress${determinate ? "" : " tws-progress--indeterminate"}`}
-          role="progressbar"
-          aria-valuemin={determinate ? 0 : undefined}
-          aria-valuemax={determinate ? 100 : undefined}
-          aria-valuenow={normalized}
+    <DialogPrimitive.Root open={open}>
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Overlay className="tws-blocking-overlay" />
+        <DialogPrimitive.Content
+          className="tws-blocking-overlay__card"
+          onEscapeKeyDown={(event) => event.preventDefault()}
+          onPointerDownOutside={(event) => event.preventDefault()}
+          onInteractOutside={(event) => event.preventDefault()}
         >
-          <span style={determinate ? { width: `${normalized}%` } : undefined} />
-        </div>
-        {detail ? <div className="tws-blocking-overlay__detail">{detail}</div> : null}
-      </div>
-    </div>
+          <div className="tws-blocking-overlay__spinner" aria-hidden="true" />
+          <DialogPrimitive.Title className="tws-blocking-overlay__title">{operation}</DialogPrimitive.Title>
+          <DialogPrimitive.Description asChild>
+            <div>
+              {item ? <div className="tws-blocking-overlay__item">{item}</div> : null}
+              <div
+                className={`tws-progress${determinate ? "" : " tws-progress--indeterminate"}`}
+                role="progressbar"
+                aria-valuemin={determinate ? 0 : undefined}
+                aria-valuemax={determinate ? 100 : undefined}
+                aria-valuenow={normalized}
+              >
+                <span style={determinate ? { width: `${normalized}%` } : undefined} />
+              </div>
+              {detail ? <div className="tws-blocking-overlay__detail">{detail}</div> : null}
+            </div>
+          </DialogPrimitive.Description>
+        </DialogPrimitive.Content>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 }
