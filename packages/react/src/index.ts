@@ -5,3 +5,8 @@ export * from "./Input";
 export * from "./FormField";
 export * from "./Tag";
 export * from "./SegmentedControl";
+export * from "./Dialog";
+export * from "./Popover";
+export * from "./Tooltip";
+export * from "./Menu";
+export * from "./Select";
