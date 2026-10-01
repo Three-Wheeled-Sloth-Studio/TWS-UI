@@ -1,0 +1,17 @@
+{
+  "name": "@tws-ui/showcase",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "vite build", "dev": "vite" },
+  "dependencies": {
+    "@tws-ui/react": "0.1.0",
+    "@tws-ui/theme": "0.1.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite": "^7.3.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "lucide-react": "^0.561.0"
+  },
+  "devDependencies": {}
+}
