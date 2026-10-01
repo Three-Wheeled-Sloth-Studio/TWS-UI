@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Settings, MoreHorizontal, RefreshCw } from "lucide-react";
-import { Button, Dialog, FormField, IconButton, Input, Menu, Panel, Popover, SegmentedControl, Select, Tag, Tooltip } from "@tws-ui/react";
+import { BlockingOperationOverlay, Button, Checkbox, Dialog, EditableTitle, FormField, IconButton, Input, Menu, Panel, Popover, SegmentedControl, Select, Status, Tag, Tooltip } from "@tws-ui/react";
 import { parchmentTheme, worldForgeTheme, type TwsTheme } from "@tws-ui/theme";
 import "@tws-ui/react/styles.css";
 import "./showcase.css";
@@ -13,6 +13,8 @@ function themeStyle(theme: TwsTheme): React.CSSProperties {
 function App() {
   const [theme, setTheme] = useState<"parchment" | "world">("parchment");
   const [mode, setMode] = useState("edit");
+  const [title, setTitle] = useState("The Broken Marches");
+  const [blocking, setBlocking] = useState(false);
   const activeTheme = theme === "parchment" ? parchmentTheme : worldForgeTheme;
 
   return (
@@ -49,10 +51,14 @@ function App() {
           ]}/></FormField>
         </div>
         <div className="showcase__row">
-          <Tag>Ready</Tag><Tag>3/60 complete</Tag>
+          <Tag>Ready</Tag><Status tone="success">Synced</Status><Status tone="warning">3/60 complete</Status>
           <SegmentedControl label="Mode" value={mode} onChange={setMode} options={[
             { value: "edit", label: "Edit" }, { value: "inspect", label: "Inspect" }
           ]}/>
+        </div>
+        <div className="showcase__stack">
+          <EditableTitle value={title} onCommit={setTitle} />
+          <Checkbox label="Include hidden resources" description="Preserve hidden generated resources in export." />
         </div>
       </Panel>
 
@@ -60,6 +66,7 @@ function App() {
         <h2>Transient surfaces</h2>
         <div className="showcase__row">
           <Popover trigger={<Button>Open popover</Button>}><strong>Compact inspector</strong><p>Supporting information stays close to the action.</p></Popover>
+          <Button onClick={() => setBlocking(true)}>Blocking operation</Button>
           <Dialog
             title="Regenerate region?"
             description="This demonstrates modal focus and dismissal behavior."
@@ -68,6 +75,7 @@ function App() {
           ><p>Dialogs use TWS styling with focused headless interaction behavior underneath.</p></Dialog>
         </div>
       </Panel>
+      <BlockingOperationOverlay open={blocking} operation="Saving project" item={title} progress={64} detail={<button onClick={() => setBlocking(false)}>Showcase: finish operation</button>} />
     </main>
   );
 }
