@@ -1,4 +1,4 @@
-@import "@tws-ui/tokens/css";
+@import "../../tokens/src/tokens.css";
 
 .tws-button,
 .tws-icon-button,
