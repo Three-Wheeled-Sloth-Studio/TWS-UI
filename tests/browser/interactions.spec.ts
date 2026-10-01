@@ -62,3 +62,18 @@ test("tooltip is available from keyboard focus", async ({ page }) => {
   await settings.focus();
   await expect(page.getByRole("tooltip")).toContainText("Application settings");
 });
+
+
+test("blocking operation is modal and cannot dismiss with Escape", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Blocking operation" }).click();
+  const dialog = page.getByRole("dialog", { name: "Saving project" });
+  await expect(dialog).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeVisible();
+
+  const finish = page.getByRole("button", { name: "Showcase: finish operation" });
+  await finish.focus();
+  await page.keyboard.press("Tab");
+  await expect(dialog).toContainText("Saving project");
+});
