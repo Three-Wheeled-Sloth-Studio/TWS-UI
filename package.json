@@ -11,13 +11,19 @@
     "typecheck": "tsc -b",
     "test": "vitest run",
     "build": "tsc -b",
-    "verify": "npm run typecheck && npm test && npm run build && npm run build:showcase",
-    "build:showcase": "npm run build -w @tws-ui/showcase"
+    "verify": "npm run typecheck && npm test && npm run test:browser && npm run build && npm run build:showcase",
+    "build:showcase": "npm run build -w @tws-ui/showcase",
+    "test:browser": "playwright test"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "@playwright/test": "^1.55.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite": "^7.3.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   }
 }
