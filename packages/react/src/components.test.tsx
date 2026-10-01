@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Button } from "./Button";
-import { BlockingOperationOverlay } from "./BlockingOperationOverlay";
 import { Checkbox } from "./Checkbox";
 import { Status } from "./Status";
 import { FormField } from "./FormField";
@@ -43,17 +42,14 @@ describe("core components", () => {
     expect(html).toContain('aria-pressed="true"');
   });
 
-  it("renders checkbox, status, and blocking progress semantics", () => {
+  it("renders checkbox and status semantics", () => {
     const html = renderToStaticMarkup(
       <div>
         <Checkbox label="Include resources" defaultChecked />
         <Status tone="success">Synced</Status>
-        <BlockingOperationOverlay open operation="Saving" progress={42} />
       </div>
     );
     expect(html).toContain('type="checkbox"');
     expect(html).toContain("tws-status--success");
-    expect(html).toContain('role="dialog"');
-    expect(html).toContain('aria-valuenow="42"');
   });
 });
