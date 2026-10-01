@@ -16,3 +16,5 @@ body { background: #111; }
 .showcase__row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .showcase__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 16px; }
 .tws-popover p { margin-bottom: 0; color: var(--tws-color-text-muted); }
+
+.showcase__stack { display: grid; gap: 12px; margin-top: 16px; }
