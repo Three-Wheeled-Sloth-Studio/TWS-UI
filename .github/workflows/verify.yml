@@ -15,6 +15,6 @@ jobs:
           node-version: 22
       - run: npm install --global npm@10.9.4
       - run: npm --version
-      - run: npm install
+      - run: npm install --legacy-peer-deps
       - run: npx playwright install --with-deps chromium
       - run: npm run verify
