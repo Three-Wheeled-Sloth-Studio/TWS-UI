@@ -27,7 +27,7 @@ export function EditableTitle({ value, onCommit, label = "Edit title", disabled 
     return (
       <div className="tws-editable-title">
         <span className="tws-editable-title__value">{value}</span>
-        <button type="button" className="tws-editable-title__edit" aria-label={label} title={label} disabled={disabled} onClick={() => setEditing(true)}>edit</button>
+        <button type="button" className="tws-editable-title__edit" aria-label={label} title={label} disabled={disabled} onClick={() => setEditing(true)}><span aria-hidden="true">✎</span></button>
       </div>
     );
   }
